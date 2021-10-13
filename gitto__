@@ -4,6 +4,15 @@ git__ () {
   __exec git "$@"
 }
 
+date__help='@arg date (e.g. 2 days ago) @does ammend the commit with the given date'
+date__ () {
+  local date="$1"
+  # we don't use local variable to capture the error code
+  newdate="$(date --date="$date")"
+  test $? -eq 0 || return -1
+  GIT_COMMITTER_DATE="$newdate" git__ commit --amend --no-edit --date="$newdate"
+}
+
 log__ () {
   git__ log --pretty=fuller
 }
