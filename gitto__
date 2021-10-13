@@ -4,4 +4,8 @@ git__ () {
   __exec git "$@"
 }
 
+log__ () {
+  git__ log --pretty=fuller
+}
+
 . undies
