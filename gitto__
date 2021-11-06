@@ -17,6 +17,11 @@ log__ () {
   git__ log --pretty=fuller
 }
 
+diff__ (){
+  : 'https://stackoverflow.com/a/25634420/257479'
+  git__ diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+' "$@"
+}
+
 newfile__help='@arg filenames @does adds the file path to index without the content.'
 newfile__ () {
   : 'https://stackoverflow.com/a/6440500/257479'
