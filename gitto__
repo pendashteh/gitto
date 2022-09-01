@@ -13,6 +13,13 @@ date__ () {
   GIT_COMMITTER_DATE="$newdate" git__ commit --amend --no-edit --date="$newdate"
 }
 
+barebranch__help='@does rename HEAD branch on a bare repository.'
+barebranch__ () {
+  read -p 'What branch to change to? ' branch
+  : 'https://stackoverflow.com/a/3302018/257479'
+  git__ symbolic-ref HEAD refs/heads/$branch
+}
+
 log__ () {
   git__ log --pretty=fuller
 }
