@@ -29,4 +29,12 @@ newfile__ () {
   git__ add --intent-to-add $files
 }
 
+serch__help='@arg search_term @does grep the search term in history'
+search__ () {
+  : 'https://stackoverflow.com/a/2929502/257479'
+  : '@TODO accept subtree as an argument'
+  local search=$1
+  git__ grep $search $(git rev-list --all)
+}
+
 . undies
