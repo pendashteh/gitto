@@ -4,6 +4,14 @@ git__ () {
   __exec git "$@"
 }
 
+# updates the worktree core, or otherwise simply .git file
+worktreeupdate__ () {
+  local newpath=$1
+  git__ config --local --unset core.worktree
+  git__ config --local core.bare true
+  git__ config --local core.repository $newpath
+}
+
 date__help='@arg date (e.g. 2 days ago) @does ammend the commit with the given date'
 date__ () {
   local date="$1"
